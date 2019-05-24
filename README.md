@@ -1,4 +1,4 @@
-# basic_lamp_stack
+# php-microservice
 
 ## How to install:
 
@@ -25,9 +25,9 @@ docker-compose up --build -d
 
 
 **Step 5)**
-Visit: [http://localhost:8080](http://localhost:8080) for webserver index page
+There is no step 5. This is just a skeleton.
 
-also, visit: [http://localhost:8081](http://localhost:8081) for PHPMyAdmin DB tool
+also, visit: [http://localhost:8091](http://localhost:8091) for PHPMyAdmin DB tool
 
 
 ## Subsequent operation
