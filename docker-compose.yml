@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+    mysql-service:
+        build: ./mysql
+        #restart: always
+        environment:
+            MYSQL_DATABASE: "${MYSQL_DATABASE}"
+            MYSQL_USER: "${MYSQL_USERNAME}"
+            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+        volumes:
+            - ${BASE_DATABASE_PATH}/data/mysql/${MYSQL_DATABASE}:/var/lib/mysql
+        #ports:
+            #- 3306:3306
+
+    redis-service:
+        build: ./redis
+        #restart: always
+        environment:
+            REDIS_PASSWORD: "${REDIS_PASSWORD}"
+        #ports:
+            #- "6379:6379"
+        volumes:
+            - ${BASE_DATABASE_PATH}/data/redis/php-micro:/data
+            
+    microservice:
+        build: .
+        #restart: always
+        environment:
+            DATABASE_HOST: "mysql-service"
+            MYSQL_DATABASE: "${MYSQL_DATABASE}"
+            MYSQL_USER: "${MYSQL_USERNAME}"
+            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+            REDIS_HOSTNAME: "redis-service"
+            REDIS_PASSWORD: "${REDIS_PASSWORD}"
+            REDIS_PREFIX: ""
+        volumes:
+            - .:/app
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        #restart: always
+        ports:
+            - 8091:80
+        environment:
+            PMA_HOSTS: "mysql-service"
+            PMA_USER: "${MYSQL_USERNAME}"
+            PMA_PASSWORD: "${MYSQL_PASSWORD}"
+            PMA_ARBITRARY: 1
+            

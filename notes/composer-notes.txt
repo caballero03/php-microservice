@@ -1,0 +1,31 @@
+
+
+// Redis client library (Optional)
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer require --ignore-platform-reqs --no-scripts predis/predis
+    
+    
+    
+// HTTP Guzzle client library (Optional)
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer require --ignore-platform-reqs --no-scripts guzzlehttp/guzzle
+
+
+
+// RedBeanPHP -- ORM for SQl database (Optional)
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer require --ignore-platform-reqs --no-scripts gabordemooij/redbean
+    
+    
+    
+// Update (You only need to run this one)
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer update --ignore-platform-reqs --no-scripts
