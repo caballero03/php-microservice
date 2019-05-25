@@ -1,3 +1,0 @@
-#!/usr/bin/env /bin/sh
-
-/usr/local/bin/php /app/src/run_cron_job.php

@@ -1,0 +1,4 @@
+#!/usr/bin/env /bin/sh
+
+# Run the CRON job
+/usr/local/bin/php /app/src/Cron/run_cron_job.php

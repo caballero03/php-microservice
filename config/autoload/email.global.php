@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Config;
 
+use Micro\Container\Infrastructure\RedisClientFactory;
 use Monolog\Logger;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 //use Micro\Container\Infrastructure\AMQPStreamConnectionFactory;
@@ -38,19 +39,11 @@ return [
         'factories' => [
 
             // Redis Client Factory
-//            'redis.client' => RedisClientFactory::class,
-//
-//            // Redis Cache store for Twig compiled templates
-//            Twig_Cache_Redis::class => TwigCacheRedisFactory::class,
-//
-//            // Twig Environment creation Factory. This injects the remote template loader and the redis cache system
-//            \Twig_Environment::class => TwigEnvironmentFactory::class,
+            'redis.client' => RedisClientFactory::class,
+
 //
 //            // RabbitMQ Connection Factory
 //            AMQPStreamConnection::class => AMQPStreamConnectionFactory::class,
-//
-//            // Email sender class
-//            Sender::class => SenderFactory::class,
 //
 //            // Monolog logger class
 //            Logger::class => LoggerFactory::class,

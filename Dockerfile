@@ -6,7 +6,7 @@ RUN apk update && apk add procps \
     && rm -rf /var/cache/apk/*
 
 # Set up CRON
-COPY ./src/cron_main /etc/periodic/15min
+COPY ./src/Cron/cron_main /etc/periodic/15min
 RUN chmod +x /etc/periodic/15min/cron_main
     
 # Use this for production instead of VOLUME /app
