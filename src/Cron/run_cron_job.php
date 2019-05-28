@@ -4,6 +4,8 @@
  * Main CRON entry point
  */
 
+declare(strict_types=1);
+
 namespace Micro;
 
 require_once __DIR__ . '/../../vendor/autoload.php';

@@ -1,6 +1,8 @@
 {
     "require": {
         "php": ">=7.2.0",
+
+        "ext-pdo": "*",
         
         "psr/container": "^1.0",
         "container-interop/container-interop": "*",
